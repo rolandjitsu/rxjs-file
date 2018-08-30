@@ -1,67 +1,67 @@
 {
-    "name": "rxjs-file",
-    "version": "0.1.0",
-    "description": "RxJS File utils",
-    "main": "./dist/rxjs-file.umd.js",
-    "module": "./dist/rxjs-file.es5.js",
-    "es2015": "./dist/rxjs-file.js",
-    "typings": "./dist/index.d.ts",
-    "keywords": [
-        "rxjs",
-        "file",
-        "utils"
-    ],
-    "homepage": "https://github.com/rolandjitsu/rxjs-file",
-    "license": "MIT",
-    "author": {
-        "name": "Roland Groza",
-        "email": "rolandjitsu@gmail.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": ""
-    },
+  "name": "rxjs-file",
+  "version": "0.1.1",
+  "description": "RxJS File utils",
+  "main": "./dist/rxjs-file.umd.js",
+  "module": "./dist/rxjs-file.es5.js",
+  "es2015": "./dist/rxjs-file.js",
+  "typings": "./dist/index.d.ts",
+  "keywords": [
+    "rxjs",
+    "file",
+    "utils"
+  ],
+  "homepage": "https://github.com/rolandjitsu/rxjs-file",
+  "license": "MIT",
+  "author": {
+    "name": "Roland Groza",
+    "email": "rolandjitsu@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "prebuild": "yarn run clean",
+    "build": "./scripts/build_package.sh rxjs-file",
+    "clean": "rm -rf dist out-tsc",
+    "lint": "tslint -c tslint.json -p ./tsconfig.spec.json -t stylish",
+    "lint:fix": "yarn run lint -- --fix",
+    "pretest:cov": "yarn run lint",
+    "test:cov": "jest --env=jsdom --coverage",
+    "test": "jest --env=jsdom --watch",
+    "release": "standard-version"
+  },
+  "standard-version": {
     "scripts": {
-        "prebuild": "yarn run clean",
-        "build": "./scripts/build_package.sh rxjs-file",
-        "clean": "rm -rf dist out-tsc",
-        "lint": "tslint -c tslint.json -p ./tsconfig.spec.json -t stylish",
-        "lint:fix": "yarn run lint -- --fix",
-        "pretest:cov": "yarn run lint",
-        "test:cov": "jest --env=jsdom --coverage",
-        "test": "jest --env=jsdom --watch",
-        "release": "standard-version"
-    },
-    "standard-version": {
-        "scripts": {
-            "prerelease": "yarn test:cov"
-        }
-    },
-    "peerDependencies": {
-        "rxjs": ">= 6.2",
-        "tslib": "^1.9.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.0.0-beta.54",
-        "@types/jest": "^22.1.2",
-        "@types/node": "^9.4.5",
-        "babel-core": "^7.0.0-0",
-        "babel-jest": "^23.4.0",
-        "camelcase": "^4.1.0",
-        "jest": "^23.5.0",
-        "jest-environment-jsdom": "^23.4.0",
-        "rollup": "^0.65.0",
-        "rollup-plugin-commonjs": "^9.1.6",
-        "rollup-plugin-node-resolve": "^3.3.0",
-        "rollup-plugin-sourcemaps": "^0.4.2",
-        "rollup-plugin-uglify": "^4.0.0",
-        "rxjs": "^6.2.1",
-        "standard-version": "^4.4.0",
-        "ts-jest": "^23.1.4",
-        "tslint": "^5.9.1",
-        "typescript": "2.8.3"
-    },
-    "engines": {
-        "node": ">= 7.9"
+      "prerelease": "yarn test:cov"
     }
+  },
+  "peerDependencies": {
+    "rxjs": ">= 6.2",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@types/jest": "^22.1.2",
+    "@types/node": "^9.4.5",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.4.0",
+    "camelcase": "^4.1.0",
+    "jest": "^23.5.0",
+    "jest-environment-jsdom": "^23.4.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^4.0.0",
+    "rxjs": "^6.2.1",
+    "standard-version": "^4.4.0",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.9.1",
+    "typescript": "2.8.3"
+  },
+  "engines": {
+    "node": ">= 7.9"
+  }
 }
