@@ -1,46 +1,63 @@
-# UID Generator
+# RxJS File
 
-> A small package for generating cryptographically secure UIDs in the browser, safe for both cookie and URL usage.
+> A small package with a couple of [File](https://developer.mozilla.org/en-US/docs/Web/API/File) utils for [RxJS](https://rxjs-dev.firebaseapp.com/).
 
-[![Travis (.org) branch](https://img.shields.io/travis/rolandjitsu/uid/master.svg?style=flat-square)](https://github.com/rolandjitsu/uid)
-
-This package is a mirror of [uid-safe](https://github.com/crypto-utils/uid-safe), but meant to be used in a browser env.
-Additionally, it comes bundled with [TypeScript](https://www.typescriptlang.org) typings.
+[![Travis (.org) branch](https://img.shields.io/travis/rolandjitsu/rxjs-file/master.svg?style=flat-square)](https://github.com/rolandjitsu/rxjs-file)
 
 
 # Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Browser Support](#browser-support)
 * [Contribute](#contribute)
 
 
 ### Installation
+--------------
 You can install this package from [NPM](https://www.npmjs.com):
 ```bash
-npm add crypto-uid
+npm add rxjs rxjs-file
 ```
 
 Or with [Yarn](https://yarnpkg.com/en):
 ```bash
-yarn add crypto-uid
+yarn add rxjs rxjs-file
 ```
 
-**NOTE**: For non ES6 users, you need to make sure that [tslib](https://github.com/Microsoft/tslib) is available.
+**NOTE**: You need to make sure that [tslib](https://github.com/Microsoft/tslib) is available as well (due to async/await).
 
 
 ### Usage
-Generate a random UID:
+---------
+Read a file as [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer):
 ```ts
-import uid from 'crypto-uid';
-const id = uid(6);
+import {toArrayBuffer} from 'rxjs-file';
+
+toArrayBuffer(file)
+    .subscribe(buffer => {
+        // Do something with the buffer 
+    });
 ```
 
+Read the file as ArrayBuffer in chunks:
+```ts
+import {toArrayBuffer} from 'rxjs-file';
 
-### Browser Support
--------------------
-You can expect this lib to run wherever [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) is supported.
+toArrayBuffer(file, {chunkSize: 1000 /* bytes */})
+    .subscribe(chunk => {
+        // Do something with each chunk
+    });
+```
+
+Read a file as text:
+```ts
+import {toString} from 'rxjs-file';
+
+toString(file)
+    .subscribe(str => {
+        // Do something with the string
+    });
+```
 
 
 ### Contribute

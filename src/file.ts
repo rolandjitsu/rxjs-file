@@ -10,10 +10,16 @@ import {publishReplay} from 'rxjs/operators';
 /**
  * Read a File/Blob and emit the data as ArrayBuffer.
  * If {chunkSize} is provided,
- * the data will be read in chunks and emitted as such.
+ * the data will be read in chunks and emitted as sequentially.
+ *
+ * If an error occurs while reading in chunks,
+ * subsequent reads are aborted and the Observable throws.
  *
  * @param file
  * @param options
+ *
+ * @returns A cold Observable that only starts reading once it is subscribed to.
+ * Any subsequent subscribers will share the same observable and replay the previous emitted chunks upon subscription.
  */
 export function toArrayBuffer(file: File | Blob, options?: ReadOptions): Observable<ArrayBuffer> {
     const source = new Observable<ArrayBuffer>(observer => {
