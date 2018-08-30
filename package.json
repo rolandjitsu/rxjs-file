@@ -1,6 +1,6 @@
 {
   "name": "rxjs-file",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "RxJS File utils",
   "main": "./dist/rxjs-file.umd.js",
   "module": "./dist/rxjs-file.es5.js",
