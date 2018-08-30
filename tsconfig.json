@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "declaration": true,
+        "module": "es2015",
+        "target": "es2015",
+        "outDir": "./out-tsc/lib-es2015/",
+        "sourceMap": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2016",
+            "dom"
+        ]
+    },
+    "files": [
+        "src/index.ts"
+    ]
+}

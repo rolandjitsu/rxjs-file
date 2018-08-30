@@ -1,0 +1,37 @@
+{
+    "extends": [
+        "tslint:latest"
+    ],
+    "rules": {
+        // TS Lint
+        // https://palantir.github.io/tslint
+        "arrow-parens": {
+            "options": [
+                "ban-single-arg-parens"
+            ]
+        },
+        "no-submodule-imports": {
+            "options": [
+                "rxjs"
+            ]
+        },
+        "interface-name": false,
+        "no-consecutive-blank-lines": {
+            "options": 2
+        },
+        "trailing-comma": {
+            "options": {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        },
+        "quotemark": {
+            "options": [
+                "avoid-escape",
+                "avoid-template",
+                "jsx-double",
+                "single"
+            ]
+        }
+    }
+}
