@@ -1,13 +1,9 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
+        "rootDir": "./src",
+        "baseUrl": "./src",
+        "noEmit": false,
         "downlevelIteration": true,
-        "importHelpers": true,
-        "moduleResolution": "node",
-        "declaration": true,
-        "module": "es2015",
-        "target": "es2015",
-        "outDir": "./out-tsc/lib-es2015/",
         "sourceMap": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
@@ -24,6 +20,6 @@
         ]
     },
     "files": [
-        "src/index.ts"
+        "./src/index.ts"
     ]
 }

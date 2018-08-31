@@ -4,7 +4,9 @@ const resolve = require('rollup-plugin-node-resolve');
 const sourcemaps = require('rollup-plugin-sourcemaps');
 const {uglify} = require('rollup-plugin-uglify');
 
-const name = require('./package.json').name;
+const pckg = require('./package.json');
+const name = pckg.name;
+const input = pckg.module;
 
 const plugins = [
     resolve(),
@@ -12,35 +14,54 @@ const plugins = [
     sourcemaps()
 ];
 
-if (process.env.UGLIFY) {
-    plugins.push(...[
-        uglify()
-    ]);
-}
-
-export default {
-    plugins,
-    output: {
-        name: camelCase(name),
-        // The key here is library name,and the value is the the name of the global variable name the window object.
-        // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
-        globals: {
-            // RxJS
-            // https://github.com/ReactiveX/rxjs#cdn
-            'rxjs': 'rxjs',
-            'rxjs/operators': 'rxjs.operators',
-            // TS
-            'tslib': 'tslib'
-        },
-        sourcemap: true
-    },
-    // List of dependencies
-    // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
-    external: [
+const output = {
+    format: 'umd',
+    name: camelCase(name),
+    // The key here is library name,and the value is the the name of the global variable name the window object.
+    // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
+    globals: {
         // RxJS
-        'rxjs',
-        'rxjs/operators',
+        // https://github.com/ReactiveX/rxjs#cdn
+        'rxjs': 'rxjs',
+        'rxjs/operators': 'rxjs.operators',
         // TS
-        'tslib'
-    ]
+        // 'tslib': 'tslib'
+    },
+    sourcemap: true
 };
+
+// List of dependencies
+// See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
+const external = [
+    // RxJS
+    'rxjs',
+    'rxjs/operators',
+    // TS
+    // 'tslib'
+];
+
+export default [{
+    input,
+    plugins,
+    external,
+    output: {
+        ...output,
+        file: distPath(`${name}.umd.js`)
+    }
+},
+{
+    input,
+    plugins: [
+        ...plugins,
+        uglify()
+    ],
+    external,
+    output: {
+        ...output,
+        file: distPath(`${name}.umd.min.js`)
+    }
+}];
+
+function distPath(file) {
+    return `./dist/bundles/${file}`;
+}
