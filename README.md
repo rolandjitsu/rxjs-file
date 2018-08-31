@@ -24,11 +24,26 @@ Or with [Yarn](https://yarnpkg.com/en):
 yarn add rxjs rxjs-file
 ```
 
-**NOTE**: You need to make sure that [tslib](https://github.com/Microsoft/tslib) is available as well (due to async/await).
+#### CDN
+For CDN, you can use [unpkg](https://unpkg.com):
+
+[https://unpkg.com/rxjs-file/dist/bundles/rxjs-file.umd.min.js](https://unpkg.com/rxjs-file/dist/bundles/rxjs-file.umd.min.js)
+
+The global namespace for rxjs-file is `rxjsFile`:
+```js
+const {toArrayBuffer} = rxjsFile;
+
+toArrayBuffer(file)
+    .subscribe(buffer => {
+        // Do something with the buffer 
+    });
+```
 
 
 ### Usage
 ---------
+
+#### ES6
 Read a file as [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer):
 ```ts
 import {toArrayBuffer} from 'rxjs-file';
@@ -59,6 +74,16 @@ toString(file)
     });
 ```
 
+#### CommonJS
+Read a file as [ArrayBuffer]
+```ts
+const {toArrayBuffer} = require('rxjs-file');
+
+toArrayBuffer(file)
+    .subscribe(buffer => {
+        // Do something with the buffer 
+    });
+```
 
 ### Contribute
 --------------
