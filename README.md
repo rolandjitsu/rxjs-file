@@ -75,7 +75,7 @@ toString(file)
 ```
 
 #### CommonJS
-Read a file as [ArrayBuffer]
+Read a file as ArrayBuffer:
 ```ts
 const {toArrayBuffer} = require('rxjs-file');
 
