@@ -13,7 +13,7 @@
 
 
 ### Installation
---------------
+----------------
 You can install this package from [NPM](https://www.npmjs.com):
 ```bash
 npm add rxjs rxjs-file
