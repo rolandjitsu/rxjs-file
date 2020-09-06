@@ -1,15 +1,15 @@
 const camelCase = require('camelcase');
-const commonjs = require('rollup-plugin-commonjs');
-const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const sourcemaps = require('rollup-plugin-sourcemaps');
-const {uglify} = require('rollup-plugin-uglify');
+const {terser} = require('rollup-plugin-terser');
 
 const pckg = require('./package.json');
 const name = pckg.name;
 const input = pckg.module;
 
 const plugins = [
-    resolve(),
+    nodeResolve(),
     commonjs(),
     sourcemaps()
 ];
@@ -20,10 +20,6 @@ const output = {
     // The key here is library name,and the value is the the name of the global variable name the window object.
     // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
     globals: {
-        // RxJS
-        // https://github.com/ReactiveX/rxjs#cdn
-        'rxjs': 'rxjs',
-        'rxjs/operators': 'rxjs.operators',
         // TS
         // 'tslib': 'tslib'
     },
@@ -33,9 +29,6 @@ const output = {
 // List of dependencies
 // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
 const external = [
-    // RxJS
-    'rxjs',
-    'rxjs/operators',
     // TS
     // 'tslib'
 ];
@@ -53,7 +46,7 @@ export default [{
     input,
     plugins: [
         ...plugins,
-        uglify()
+        terser()
     ],
     external,
     output: {

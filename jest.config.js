@@ -2,8 +2,8 @@ module.exports = {
     setupFiles: [],
     globals: {
         'ts-jest': {
-            tsConfigFile: './tsconfig.spec.json',
-            enableTsDiagnostics: true
+            tsConfig: './tsconfig.spec.json',
+            diagnostics: true
         }
     },
     transform: {

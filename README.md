@@ -2,7 +2,9 @@
 
 > A small package with a couple of [File](https://developer.mozilla.org/en-US/docs/Web/API/File) utils for [RxJS](https://rxjs-dev.firebaseapp.com/).
 
-[![Travis (.org) branch](https://img.shields.io/travis/rolandjitsu/rxjs-file/master.svg?style=flat-square)](https://github.com/rolandjitsu/rxjs-file)
+[![npm](https://img.shields.io/npm/v/rxjs-file.svg?style=flat-square)](https://www.npmjs.com/package/rxjs-file)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/rolandjitsu/rxjs-file/Test?label=tests&style=flat-square)](https://github.com/rolandjitsu/rxjs-file/actions?query=workflow%3ATest)
+[![Coveralls github branch](https://img.shields.io/coveralls/github/rolandjitsu/rxjs-file/master?style=flat-square)](https://coveralls.io/github/rolandjitsu/rxjs-file?branch=master)
 
 
 # Table of Contents
